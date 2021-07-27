@@ -219,11 +219,9 @@ public class StripeModule extends ReactContextBaseJavaModule {
   public void createTokenWithBankAccount(final ReadableMap accountData, final Promise promise) {
     try {
       ArgCheck.nonNull(mStripe);
-      ArgCheck.notEmptyString(mPublicKey);
 
       mStripe.createBankAccountToken(
         createBankAccount(accountData),
-        mPublicKey,
         null,
         new ApiResultCallback<Token>() {
           public void onSuccess(Token token) {
